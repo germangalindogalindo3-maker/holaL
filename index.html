@@ -4,69 +4,74 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Una invitación para Luna</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
   box-sizing: border-box;
   padding-top: env(safe-area-inset-top, 0px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
-  --bg: #fdf2f8; --card: #ffffff; --border: #f9d5e8; --accent: #d6609e;
-  --accent-h: #c24c8b; --title: #8e3f6e; --text: #5b3a52; --muted: #a58e9f;
-  --soft: #fff4f9; --no: #cfc3d8;
+  --wine: #4a1424; --wine-2: #6b2237; --rose: #b4566f; --cream: #fbf6ef;
+  --ink: #3a2128; --muted: #8a7078; --line: #e6d3cd; --gold: #b08d57;
+  --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --sans: "Jost", "Segoe UI", system-ui, sans-serif;
   color-scheme: light;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #1e1420; --card: #2a1c2d; --border: #4a2f4d; --accent: #e27bb0;
-    --accent-h: #ee94c1; --title: #f3b6d6; --text: #ecd5e4; --muted: #a58e9f;
-    --soft: #34233a; --no: #6d5d79;
-    color-scheme: dark;
-  }
 }
 * { box-sizing: border-box; }
 html, body { height: 100%; margin: 0; }
 body {
-  background: var(--bg); color: var(--text);
-  font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
-  display: flex; align-items: center; justify-content: center; padding: 18px;
-  overflow-y: auto; overflow-x: hidden;
+  background: radial-gradient(ellipse at top, #5b1b2e 0%, #3a0e1b 70%);
+  color: var(--ink); font-family: var(--sans);
+  display: flex; padding: 20px; overflow-y: auto; overflow-x: hidden;
 }
 .card {
-  position: relative; margin: auto; width: 100%; max-width: 440px; background: var(--card);
-  border: 2px solid var(--border); border-radius: 32px; padding: 28px 24px;
-  text-align: center; box-shadow: 0 10px 40px rgba(214, 96, 158, .12);
+  position: relative; margin: auto; width: 100%; max-width: 440px;
+  background: var(--cream); padding: 12px; border-radius: 4px;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, .45);
 }
-.moon { font-size: 56px; line-height: 1; }
-h1 { margin: 6px 0 0; font-size: 32px; color: var(--title); }
-.sub { margin: 4px 0 18px; color: var(--muted); font-size: 15px; }
-.q { font-size: 21px; font-weight: 700; margin: 0 0 18px; line-height: 1.3; }
-.plan { background: var(--soft); border: 1px solid var(--border); border-radius: 20px; padding: 10px 18px; margin-bottom: 20px; }
-.plan div { padding: 6px 0; font-size: 16px; display: flex; gap: 10px; justify-content: center; }
+.inner {
+  border: 1px solid var(--gold); padding: 38px 28px 34px; text-align: center;
+}
+.eyebrow { font-size: 11px; letter-spacing: .38em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
+.orn { display: flex; align-items: center; justify-content: center; gap: 12px; margin: 18px 0; color: var(--gold); }
+.orn::before, .orn::after { content: ""; height: 1px; width: 56px; background: var(--gold); opacity: .6; }
+.orn svg { width: 14px; height: 14px; fill: var(--rose); }
+h1 { font-family: var(--serif); font-weight: 500; font-style: italic; font-size: 52px; line-height: 1; margin: 0; color: var(--wine); }
+.q { font-family: var(--serif); font-size: 24px; line-height: 1.35; margin: 22px 0 26px; color: var(--ink); }
+.plan { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-bottom: 30px; }
+.plan div { padding: 16px 6px; }
+.plan div + div { border-left: 1px solid var(--line); }
+.plan small { display: block; font-size: 10px; letter-spacing: .26em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+.plan span { font-family: var(--serif); font-size: 19px; font-weight: 600; color: var(--wine); }
 .yes {
-  background: var(--accent); color: #fff; border: 0; border-radius: 30px;
-  padding: 15px 34px; font-size: 17px; font-weight: 700; cursor: pointer;
-  transition: transform .2s, background .2s; font-family: inherit;
+  background: var(--wine); color: var(--cream); border: 0; border-radius: 2px;
+  padding: 15px 38px; font-family: var(--sans); font-size: 12px; letter-spacing: .24em;
+  text-transform: uppercase; font-weight: 500; cursor: pointer;
+  transition: transform .25s, background .25s;
 }
-.yes:hover { background: var(--accent-h); }
-.arena { position: relative; height: 130px; margin-top: 10px; }
+.yes:hover { background: var(--wine-2); }
+.arena { position: relative; height: 120px; margin-top: 8px; }
 .no {
-  position: absolute; left: calc(50% - 50px); top: 45px; width: 100px; height: 40px;
-  border: 0; border-radius: 20px; background: var(--no); color: #fff;
-  font-weight: 700; font-size: 14px; font-family: inherit;
+  position: absolute; left: calc(50% - 45px); top: 38px; width: 90px; height: 38px;
+  background: transparent; color: var(--muted); border: 1px solid var(--line); border-radius: 2px;
+  font-family: var(--sans); font-size: 11px; letter-spacing: .22em; text-transform: uppercase;
   transition: left .18s ease-out, top .18s ease-out; touch-action: manipulation;
 }
-.msg { min-height: 22px; margin: 4px 0 0; color: var(--accent); font-style: italic; font-size: 14px; }
+.msg { min-height: 22px; margin: 2px 0 0; color: var(--rose); font-family: var(--serif); font-style: italic; font-size: 17px; }
 .final { display: none; }
-.final .big { font-size: 70px; margin-top: 18px; }
-.final h2 { color: var(--title); font-size: 27px; margin: 6px 0; }
-.final .box { background: var(--soft); border: 1px solid var(--border); border-radius: 20px; padding: 16px; margin: 22px 8px 0; }
-.final .tag { color: var(--accent); font-weight: 700; font-size: 13px; letter-spacing: .08em; margin-bottom: 8px; }
-.final .box p { margin: 4px 0; font-size: 17px; }
-.final .sign { margin-top: 24px; font-weight: 700; }
-.final .by { margin-top: 18px; color: var(--muted); font-style: italic; font-size: 13px; }
-.photo { margin: 22px auto 0; width: 230px; max-width: 80%; filter: drop-shadow(0 8px 14px rgba(214, 96, 158, .35)); }
+.final h2 { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 40px; line-height: 1.05; margin: 0; color: var(--wine); }
+.final p.lead { font-family: var(--serif); font-size: 21px; margin: 18px 0 24px; color: var(--ink); }
+.final .plan { margin-bottom: 22px; }
+.final .host { font-family: var(--serif); font-size: 20px; font-style: italic; color: var(--wine-2); margin: 0; }
+.final .by { margin: 22px 0 0; font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); }
+.photo { margin: 28px auto 0; width: 240px; max-width: 80%; filter: drop-shadow(0 8px 14px rgba(74, 20, 36, .35)); }
 .photo img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; clip-path: url(#heartClip); }
-.heart { position: fixed; top: -40px; pointer-events: none; animation: fall linear forwards; z-index: 5; }
-@keyframes fall { to { transform: translateY(110vh) rotate(30deg); } }
+.heart { position: fixed; top: -50px; pointer-events: none; z-index: 9; animation: fall linear forwards; }
+@keyframes fall {
+  0% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+  100% { transform: translate(var(--dx, 0), 112vh) rotate(var(--rot, 40deg)); opacity: .9; }
+}
 </style>
 </head>
 <body>
@@ -75,34 +80,39 @@ h1 { margin: 6px 0 0; font-size: 32px; color: var(--title); }
     <path d="M0.5,0.95 C0.15,0.7 0,0.5 0,0.3 C0,0.12 0.13,0 0.27,0 C0.38,0 0.46,0.06 0.5,0.14 C0.54,0.06 0.62,0 0.73,0 C0.87,0 1,0.12 1,0.3 C1,0.5 0.85,0.7 0.5,0.95 Z"/>
   </clipPath>
 </svg>
-<main class="card">
-  <section id="ask">
-    <div class="moon">🌙</div>
-    <h1>Hola, Luna</h1>
-    <p class="sub">Tengo una propuesta para ti</p>
-    <p class="q">¿Quieres salir a tomar<br>unos granizados conmigo?</p>
-    <div class="plan">
-      <div><span>📍</span><span>Olimpo VIP</span></div>
-      <div><span>📅</span><span>Mañana</span></div>
-      <div><span>🕑</span><span>2:00 p. m.</span></div>
-    </div>
-    <button class="yes" id="yes">¡Sí, vamos! 💗</button>
-    <div class="arena" id="arena"><button class="no" id="no" type="button">No 🙈</button></div>
-    <p class="msg" id="msg"></p>
-  </section>
 
-  <section class="final" id="final">
-    <div class="big">💗</div>
-    <h2>¡Sabía que dirías que sí!</h2>
-    <p class="sub">Acabas de alegrarle el día a alguien.</p>
-    <div class="box">
-      <div class="tag">PLAN CONFIRMADO</div>
-      <p>📍 Olimpo VIP</p><p>📅 Mañana</p><p>🕑 2:00 p. m.</p>
-    </div>
-    <p class="sign">Germán invita los granizados 🍓</p>
-    <p class="by">Con cariño, Germán ❤️</p>
-    <div class="photo" id="photo"><img src="elAmor.jpeg" alt="El amor" onerror="document.getElementById('photo').style.display='none'"></div>
-  </section>
+<main class="card">
+  <div class="inner">
+    <section id="ask">
+      <div class="eyebrow">Una invitación</div>
+      <div class="orn"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.6-8-11.2C4 6.6 6.2 5 8.3 5c1.6 0 2.9.8 3.7 2 .8-1.2 2.100-2 3.700-2C17.800 5 20 6.600 20 9.800 20 15.400 12 21 12 21z"/></svg></div>
+      <h1>Luna</h1>
+      <p class="q">¿Te gustaría salir a tomar<br>unos granizados conmigo?</p>
+      <div class="plan">
+        <div><small>Lugar</small><span>Olimpo VIP</span></div>
+        <div><small>Fecha</small><span>Mañana</span></div>
+        <div><small>Hora</small><span>2:00 p. m.</span></div>
+      </div>
+      <button class="yes" id="yes" type="button">Sí, me encantaría</button>
+      <div class="arena" id="arena"><button class="no" id="no" type="button">No</button></div>
+      <p class="msg" id="msg"></p>
+    </section>
+
+    <section class="final" id="final">
+      <div class="eyebrow">Plan confirmado</div>
+      <div class="orn"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.6-8-11.2C4 6.6 6.2 5 8.3 5c1.6 0 2.9.8 3.7 2 .8-1.2 2.100-2 3.700-2C17.800 5 20 6.600 20 9.800 20 15.400 12 21 12 21z"/></svg></div>
+      <h2>Gracias por<br>decir que sí</h2>
+      <p class="lead">Nos vemos mañana.</p>
+      <div class="plan">
+        <div><small>Lugar</small><span>Olimpo VIP</span></div>
+        <div><small>Fecha</small><span>Mañana</span></div>
+        <div><small>Hora</small><span>2:00 p. m.</span></div>
+      </div>
+      <p class="host">Los granizados corren por mi cuenta.</p>
+      <p class="by">Con cariño, Germán</p>
+      <div class="photo" id="photo"><img src="elAmor.jpeg" alt="" onerror="document.getElementById('photo').style.display='none'"></div>
+    </section>
+  </div>
 </main>
 
 <script>
@@ -111,13 +121,13 @@ const no = document.getElementById("no");
 const yes = document.getElementById("yes");
 const msg = document.getElementById("msg");
 const messages = [
-  "Uy, ese botón está sospechoso 😂",
-  "No es tan fácil como parece…",
-  "El botón No tiene otros planes.",
-  "Germán está haciendo trampa 😭",
-  "Mejor presiona el que brilla 💗",
-  "Inténtalo otra vez, JAJAJA",
-  "El destino quiere esos granizados 🍓"
+  "Ese botón no está disponible por ahora.",
+  "Parece que hoy no quiere cooperar.",
+  "Creo que se ha puesto tímido.",
+  "Casi lo logras. Casi.",
+  "Quizás el otro botón sea más amable.",
+  "Insiste si quieres, yo espero.",
+  "Las mejores respuestas son las que se dicen con calma."
 ];
 let moves = 0, done = false;
 
@@ -134,8 +144,7 @@ function dodge(px, py) {
   no.style.top = best[1] + "px";
   moves++;
   msg.textContent = messages[Math.floor(Math.random() * messages.length)];
-  const g = Math.min(moves, 10);
-  yes.style.transform = "scale(" + (1 + g * 0.04) + ")";
+  yes.style.transform = "scale(" + (1 + Math.min(moves, 10) * 0.035) + ")";
 }
 
 function near(e) {
@@ -148,22 +157,36 @@ document.addEventListener("pointermove", onPointer);
 document.addEventListener("pointerdown", onPointer);
 no.addEventListener("click", function (e) { e.preventDefault(); dodge(e.clientX, e.clientY); });
 
+function rain(count, maxDelay) {
+  const emojis = ["❤️", "💗", "💖", "💕", "💘"];
+  const glyphColors = ["#e0607e", "#c9304f", "#f08aa3", "#ff5d7d", "#b4566f", "#ffd1dc"];
+  for (let i = 0; i < count; i++) {
+    const s = document.createElement("span");
+    s.className = "heart";
+    if (Math.random() < 0.5) {
+      s.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    } else {
+      s.textContent = "\u2665";
+      s.style.color = glyphColors[Math.floor(Math.random() * glyphColors.length)];
+    }
+    s.style.left = Math.random() * 98 + "vw";
+    s.style.fontSize = 14 + Math.random() * 28 + "px";
+    s.style.setProperty("--dx", (Math.random() * 90 - 45) + "px");
+    s.style.setProperty("--rot", (Math.random() * 120 - 60) + "deg");
+    s.style.animationDuration = 3.5 + Math.random() * 3.5 + "s";
+    s.style.animationDelay = Math.random() * maxDelay + "s";
+    document.body.appendChild(s);
+    setTimeout(function () { s.remove(); }, (maxDelay + 8) * 1000);
+  }
+}
+
 yes.addEventListener("click", function () {
   done = true;
   document.getElementById("ask").style.display = "none";
   document.getElementById("final").style.display = "block";
-  const icons = ["💗", "✨", "🍓", "💖"];
-  for (let i = 0; i < 24; i++) {
-    const s = document.createElement("span");
-    s.className = "heart";
-    s.textContent = icons[i % icons.length];
-    s.style.left = Math.random() * 95 + "vw";
-    s.style.fontSize = 16 + Math.random() * 14 + "px";
-    s.style.animationDuration = 3 + Math.random() * 3 + "s";
-    s.style.animationDelay = Math.random() * 1.5 + "s";
-    document.body.appendChild(s);
-    setTimeout(function () { s.remove(); }, 8000);
-  }
+  window.scrollTo(0, 0);
+  rain(90, 2);
+  setTimeout(function () { rain(70, 3); }, 3500);
 });
 </script>
 </body>
